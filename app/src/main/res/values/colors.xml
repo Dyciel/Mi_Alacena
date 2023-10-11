@@ -4,4 +4,7 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="yellow">#F2D544</color>
+    <color name="winter">#F2F1F0</color>
+
+    <color name="btnColor">#CF761E</color>
 </resources>
