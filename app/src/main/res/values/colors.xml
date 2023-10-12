@@ -7,4 +7,7 @@
     <color name="winter">#F2F1F0</color>
 
     <color name="btnColor">#CF761E</color>
+    <color name="btnEspColor">#E44135</color>
+
+    <color name="autummBg">#F1CFAD</color>
 </resources>

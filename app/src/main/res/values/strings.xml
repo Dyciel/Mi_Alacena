@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Mi Alacena</string>
+
+    <string name="textn1">¡Bienvenid@!</string>
+    <string name="textn2">¿Qué deseas hacer hoy?</string>
+
+
+
 </resources>

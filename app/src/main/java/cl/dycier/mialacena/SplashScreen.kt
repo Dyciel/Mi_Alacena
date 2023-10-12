@@ -40,7 +40,7 @@ class SplashScreen : AppCompatActivity() {
         animationSet.addAnimation(scaleUp)
 
 
-        val imageView = findViewById<ImageView>(R.id.imageBopBop)
+        val imageView = findViewById<ImageView>(R.id.pandalogo)
 
         fadeIn.setAnimationListener(object : Animation.AnimationListener {
             override fun onAnimationStart(animation: Animation?) {
@@ -48,8 +48,8 @@ class SplashScreen : AppCompatActivity() {
             }
 
             override fun onAnimationEnd(animation: Animation?) {
-                // Animation ended; proceed to MainActivity
-                val intent = Intent(this@SplashScreen, MainActivity::class.java)
+                // Animation ended; proceed to Login
+                val intent = Intent(this@SplashScreen, Login::class.java)
                 startActivity(intent)
                 finish() // Optional: Close the splash screen activity
             }
@@ -64,7 +64,7 @@ class SplashScreen : AppCompatActivity() {
 
         val handler = Handler(Looper.getMainLooper())
         handler.postDelayed({
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, Login::class.java)
             startActivity(intent)
             finish() // Optional: Close the splash screen activity
         }, delayMillis)

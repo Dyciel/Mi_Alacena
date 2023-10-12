@@ -4,6 +4,92 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/autummBg"
     tools:context=".Inventario">
 
+    <TextView
+        android:id="@+id/textInventario"
+        android:layout_width="329dp"
+        android:layout_height="101dp"
+        android:fontFamily="cursive"
+        android:text="Inventario"
+        android:textAlignment="center"
+        android:textColor="@color/btnColor"
+        android:textSize="70sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.206" />
+
+    <Button
+        android:id="@+id/addButton"
+        android:layout_width="248dp"
+        android:layout_height="57dp"
+        android:backgroundTint="@color/btnColor"
+        android:backgroundTintMode="screen"
+        android:text="Añadir Producto"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.43" />
+
+    <Button
+        android:id="@+id/minusButton"
+        android:layout_width="248dp"
+        android:layout_height="57dp"
+        android:backgroundTint="@color/btnColor"
+        android:backgroundTintMode="screen"
+        android:text="Eliminar Producto"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.53" />
+
+    <Button
+        android:id="@+id/verButton"
+        android:layout_width="248dp"
+        android:layout_height="57dp"
+        android:backgroundTint="@color/btnColor"
+        android:backgroundTintMode="screen"
+        android:text="Ver Inventario"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.63" />
+
+    <Button
+        android:id="@+id/borrarButton"
+        android:layout_width="248dp"
+        android:layout_height="57dp"
+        android:backgroundTint="@color/btnColor"
+        android:backgroundTintMode="screen"
+        android:text="Eliminar Inventario"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.73" />
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="248dp"
+        android:layout_height="57dp"
+        android:backgroundTint="@color/btnEspColor"
+        android:backgroundTintMode="screen"
+        android:text="Volver al Menú"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.93" />
 </androidx.constraintlayout.widget.ConstraintLayout>
