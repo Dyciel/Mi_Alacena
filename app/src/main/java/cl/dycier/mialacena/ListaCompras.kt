@@ -5,20 +5,20 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 
-class Tienda : AppCompatActivity() {
+class ListaCompras : AppCompatActivity() {
 
     lateinit var buttonBack: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_tienda)
+        setContentView(R.layout.activity_lista_compras)
 
 
 
 
-        buttonBack=findViewById(R.id.backButton3)
+        buttonBack=findViewById(R.id.backButton2)
 
         buttonBack.setOnClickListener{
-            val intent = Intent(this@Tienda, MainActivity::class.java)
+            val intent = Intent(this@ListaCompras, MainActivity::class.java)
             startActivity(intent)
             finish()
         }

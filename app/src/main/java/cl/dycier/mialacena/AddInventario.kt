@@ -1,5 +1,6 @@
 package cl.dycier.mialacena
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
@@ -8,6 +9,8 @@ import android.widget.EditText
 import android.widget.ListView
 
 class AddInventario : AppCompatActivity() {
+
+    lateinit var buttonBack: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +38,14 @@ class AddInventario : AppCompatActivity() {
             val element = arrayAdapter.getItem(position)
             nomProd.remove(element)
             arrayAdapter.notifyDataSetChanged()
+        }
+
+        buttonBack=findViewById(R.id.backButton)
+
+        buttonBack.setOnClickListener{
+            val intent = Intent(this@AddInventario, MainActivity::class.java)
+            startActivity(intent)
+            finish()
         }
 
     }

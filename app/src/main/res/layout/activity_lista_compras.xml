@@ -5,74 +5,61 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/autummBg"
-    tools:context=".AddInventario">
-
-    <EditText
-        android:id="@+id/lista"
-        android:layout_width="360dp"
-        android:layout_height="60dp"
-        android:background="@color/alacenalogo1_background"
-        android:hint="  Ingrese producto"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.18" />
+    tools:context=".ListaCompras">
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="349dp"
-        android:layout_height="72dp"
+        android:id="@+id/listTitle"
+        android:layout_width="323dp"
+        android:layout_height="69dp"
         android:fontFamily="cursive"
-        android:text="Inventario"
+        android:text="Lista de Compras"
         android:textAlignment="center"
         android:textColor="@color/btnColor"
-        android:textSize="60sp"
+        android:textSize="48sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.051" />
+        app:layout_constraintVertical_bias="0.161" />
 
     <Button
-        android:id="@+id/addButton"
-        android:layout_width="360dp"
-        android:layout_height="60dp"
+        android:id="@+id/addListButton"
+        android:layout_width="293dp"
+        android:layout_height="76dp"
         android:backgroundTint="@color/btnColor"
-        android:text="Agregar a la lista"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.509"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.289" />
-
-    <ListView
-        android:id="@+id/listaObjetos"
-        android:layout_width="360dp"
-        android:layout_height="359dp"
-        android:background="@color/alacenalogo1_background"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.509"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.758" />
-
-    <Button
-        android:id="@+id/backButton"
-        android:layout_width="178dp"
-        android:layout_height="49dp"
-        android:backgroundTint="@color/btnEspColor"
-        android:text="Volver"
+        android:text="Agregar Lista de Compras"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
+        app:layout_constraintVertical_bias="0.324" />
 
+    <Button
+        android:id="@+id/hisListButton"
+        android:layout_width="293dp"
+        android:layout_height="76dp"
+        android:backgroundTint="@color/btnColor"
+        android:text="Historial de Compras"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499" />
+
+    <Button
+        android:id="@+id/backButton2"
+        android:layout_width="293dp"
+        android:layout_height="76dp"
+        android:backgroundTint="@color/btnEspColor"
+        android:text="Volver"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.926" />
 </androidx.constraintlayout.widget.ConstraintLayout>
