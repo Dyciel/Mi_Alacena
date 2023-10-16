@@ -14,10 +14,12 @@ En la pantalla de Inventario nos da la opción de agregar productos que tenemos 
 En la pantalla de Lista de Compras nos desplega una pantalla con varios botones de acción que nos dirige hacia:
 - Agregar Lista de Compras: El usuario puede, a través de los elementos en pantalla, ingresar los artículos que desea comprar y estos se agregan a una lista, este proceso equivale a un recordatorio para compras.
 - Ingreso de Compras: Aquí el ususario puede registrar los productos comprados, la cantidad y el precio a los que fueron adquiridos, adjuntándose en una lista.
-- Historial de Compras: Muestra una lista de las compras que ha realizado el usuario, mostrando la fecha de compra. Al seleccionar una fecha se desprende un cuadro de texto que nos dice ue articulos fueron comprados,
-la cantidad y el precio.
+- Historial de Compras: Muestra una lista de las compras que ha realizado el usuario, mostrando la fecha de compra. Al seleccionar una fecha se desprende un cuadro de texto que nos dice ue articulos fueron comprados, la cantidad y el precio.
+
 Para finalizar, en la pantalla de Tiendas, se nos despliega una pantalla que nos muestra las tiendas cercanas al usuario (por el momento es una imagen de un lugar "X" que muestra las tiendas cercanas).
 Cabe destacas que todas las pantallas implementadas cuentan con un botón de acción "Volver" que nos redirecciona a la pantalla anterior a la que nos encontramos.
+
+
 
 Requisitos Funcionales:
 
