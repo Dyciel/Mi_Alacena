@@ -1,5 +1,6 @@
 package cl.dycier.mialacena
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
@@ -9,6 +10,7 @@ import android.widget.ListView
 import androidx.appcompat.app.AlertDialog
 
 class AddListas : AppCompatActivity() {
+    lateinit var buttonBack: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_listas)
@@ -41,6 +43,14 @@ class AddListas : AppCompatActivity() {
                 setPositiveButton("Atrás", null)
 
             }.show()
+        }
+
+        buttonBack=findViewById(R.id.backButton5)
+
+        buttonBack.setOnClickListener{
+            val intent = Intent(this@AddListas, ListaCompras::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 }

@@ -30,14 +30,14 @@
         android:layout_width="293dp"
         android:layout_height="438dp"
         android:background="@color/alacenalogo1_background"
-        app:layout_constraintBottom_toTopOf="@+id/backButton5"
+        app:layout_constraintBottom_toTopOf="@+id/backButton6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/historialTitle"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/backButton5"
+        android:id="@+id/backButton6"
         android:layout_width="203dp"
         android:layout_height="48dp"
         android:backgroundTint="@color/btnEspColor"

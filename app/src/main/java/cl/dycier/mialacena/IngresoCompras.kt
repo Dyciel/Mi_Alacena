@@ -1,5 +1,6 @@
 package cl.dycier.mialacena
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
@@ -9,7 +10,7 @@ import android.widget.ListView
 import androidx.appcompat.app.AlertDialog
 
 class IngresoCompras : AppCompatActivity() {
-
+    lateinit var buttonBack: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ingreso_compras)
@@ -58,9 +59,15 @@ class IngresoCompras : AppCompatActivity() {
 
             }.show()
         }
+
+        buttonBack=findViewById(R.id.backButton4)
+
+        buttonBack.setOnClickListener{
+            val intent = Intent(this@IngresoCompras, ListaCompras::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
-    //listString.add(nomProd2.text.toString())
-    //arrayAdapter.notifyDataSetChanged()
 
 }
 
