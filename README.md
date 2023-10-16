@@ -33,6 +33,7 @@ Con respecto al usuario:
 - Los usuarios pueden crear listas de compras personalizadas.
 - Los usuarios pueden asignar precios a los productos ingresados en las listas correspondientes.
 - Los usuarios pueden ingresar productos escribiendo el nombre del producto en las listas correspondientes.
+- Los usuarios pueden crear listas de compras personalizadas y organizar productos en categorías.
 
 Requisitos No Funcionales:
 
@@ -41,6 +42,10 @@ Requisitos No Funcionales:
 - La aplicación debe poder estar disponible para su uso sin interrupciones.
 - La aplicación debe responder de forma rápida y eficiente ante cualquier acción ejecutada por el usuario.
 - La aplicación debe ser capaz de manejar cierta cantidad de datos ingresados sin afectar su rendimeinto.
+- La aplicación debe permitir a los usuarios personalizar la configuración según sus preferencias.
+- La aplicación debe entregar recordatorios y/o notificaiones en un tiempo razonable.
+- La aplicación debe cumplir con las regulaciones de privacidad de datos y protección de la privacidad del usuario.
+- La aplicación debe contar con una interfaz intuitiva y fácil de usar por el usuario.
 
 Esta aplicación "Mi Alacena: El espacio para las cosas buenas" es producido por Diego Castro Ruiz. 
 
