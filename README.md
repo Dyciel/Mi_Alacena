@@ -49,5 +49,7 @@ Requisitos No Funcionales:
 
 Esta aplicación "Mi Alacena: El espacio para las cosas buenas" es producido por Diego Castro Ruiz. 
 
+Link video App Mi Alacena: https://youtu.be/2yl8DQCCgbM
+
 
 
