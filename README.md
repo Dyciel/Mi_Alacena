@@ -3,7 +3,7 @@ Aplicación para manejo/inventario de insumos dentro del hogar.
 
 La Aplicación "Mi Alacena: El espacio para las cosas buenas" es una aplicación para dispositivos Android en desarrollo, que ayuda al usuario a organizar de una forma más efectiva y eficaz tanto los elementos
 y/o insumos que tiene en su hogar, como el manejo de compras que puede realizar. 
-Esta apliación facilita y hace más eficiente tanto la gestión de compras como la planificación de gastos por parte del usuario.
+Esta aplicación facilita y hace más eficiente tanto la gestión de compras como la planificación de gastos por parte del usuario.
 
 La aplicación cuenta con un Splash Screen animado que muestra el logo de la empresa ficiticia "Panda Games: you must beiieve". 
 Luego nos lleva a la pantalla de Login, donde se muestra el logo de la aplicación. En esta pantalla el usuario debe llenar las casillas con la información que se le pide (nombre de usuario y contraseña).
