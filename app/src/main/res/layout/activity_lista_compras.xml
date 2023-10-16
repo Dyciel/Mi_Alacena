@@ -21,7 +21,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.161" />
+        app:layout_constraintVertical_bias="0.08" />
 
     <Button
         android:id="@+id/addListButton"
@@ -38,6 +38,19 @@
         app:layout_constraintVertical_bias="0.324" />
 
     <Button
+        android:id="@+id/ingListShopButton3"
+        android:layout_width="293dp"
+        android:layout_height="76dp"
+        android:backgroundTint="@color/btnColor"
+        android:text="Ingreso de Compras"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499" />
+
+    <Button
         android:id="@+id/hisListButton"
         android:layout_width="293dp"
         android:layout_height="76dp"
@@ -48,7 +61,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
+        app:layout_constraintVertical_bias="0.676" />
 
     <Button
         android:id="@+id/backButton2"
