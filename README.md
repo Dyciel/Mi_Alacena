@@ -53,5 +53,7 @@ Link video App Mi Alacena: https://youtu.be/2yl8DQCCgbM
 
 Link acceso a diagrama de clases: https://drive.google.com/file/d/1wx_Z3t5gsJRKtUKbBhiG-OyG9rKFOUnw/view?usp=drive_link
 
+Link acceso a APK: https://drive.google.com/file/d/1G9TUPS778uUQzQNHVKr9rnBY7uqrJOkM/view?usp=sharing
+
 
 
