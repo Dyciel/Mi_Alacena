@@ -5,7 +5,19 @@
         android:title="@string/Search" />
     <item
         android:id="@+id/Orden"
-        android:title="@string/Order" />
+        android:title="Ordenar">
+        <menu>
+            <item
+                android:id="@+id/OrdenarPorNombre"
+                android:title="Por Nombre" />
+            <item
+                android:id="@+id/OrdenarPorCantidad"
+                android:title="Por Cantidad" />
+            <item
+                android:id="@+id/OrdenarPorCategoria"
+                android:title="Por Categoría" />
+        </menu>
+    </item>
     <item
         android:id="@+id/PrefConf"
         android:title="@string/SettingTitle" />

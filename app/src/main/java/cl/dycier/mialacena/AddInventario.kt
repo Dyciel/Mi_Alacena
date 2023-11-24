@@ -91,6 +91,7 @@ class AddInventario : AppCompatActivity() {
             }
 
             R.id.Orden -> {
+                mostrarFormularioOrden()
                 return true
             }
 
@@ -101,6 +102,21 @@ class AddInventario : AppCompatActivity() {
             }
 
             R.id.AbAcercade -> {
+                return true
+            }
+
+            R.id.OrdenarPorNombre -> {
+                ordenarPorNombre()
+                return true
+            }
+
+            R.id.OrdenarPorCantidad -> {
+                ordenarPorCantidad()
+                return true
+            }
+
+            R.id.OrdenarPorCategoria -> {
+                ordenarPorCategoria()
                 return true
             }
 
@@ -161,6 +177,42 @@ class AddInventario : AppCompatActivity() {
         }
 
         adapter.actualizarLista(resultadosBusqueda)
+    }
+    private fun mostrarFormularioOrden() {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Ordenar Por")
+
+        val options = arrayOf("Nombre", "Cantidad", "Categoría")
+
+        builder.setItems(options) { dialog, which ->
+            when (which) {
+                0 -> ordenarPorNombre()
+                1 -> ordenarPorCantidad()
+                2 -> ordenarPorCategoria()
+            }
+        }
+
+        builder.setNegativeButton("Cancelar") { dialog, _ ->
+            dialog.dismiss()
+        }
+
+        val dialog = builder.create()
+        dialog.show()
+    }
+
+    private fun ordenarPorNombre() {
+        listaProductos.sortBy { it.nombre }
+        adapter.notifyDataSetChanged()
+    }
+
+    private fun ordenarPorCantidad() {
+        listaProductos.sortBy { it.cantidad }
+        adapter.notifyDataSetChanged()
+    }
+
+    private fun ordenarPorCategoria() {
+        listaProductos.sortBy { it.categoria }
+        adapter.notifyDataSetChanged()
     }
 
 }
