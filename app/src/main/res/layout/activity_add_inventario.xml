@@ -7,6 +7,21 @@
     android:background="@color/autummBg"
     tools:context=".AddInventario">
 
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toobar"
+        android:layout_width="400dp"
+        android:layout_height="40dp"
+        android:background="@color/winter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.545"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Mi Alacena"
+        app:titleMargin="4dp"
+        app:titleMarginStart="150dp"
+        app:titleTextColor="@color/btnColor" />
+
     <EditText
         android:id="@+id/lista"
         android:layout_width="360dp"
@@ -24,30 +39,30 @@
         android:layout_width="349dp"
         android:layout_height="72dp"
         android:fontFamily="cursive"
-        android:text="Inventario"
+        android:text="@string/InventarioTitle"
         android:textAlignment="center"
         android:textColor="@color/btnColor"
-        android:textSize="60sp"
+        android:textSize="48sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.051" />
+        app:layout_constraintVertical_bias="0.074" />
 
     <Button
         android:id="@+id/addButton"
-        android:layout_width="360dp"
-        android:layout_height="60dp"
+        android:layout_width="62dp"
+        android:layout_height="52dp"
         android:backgroundTint="@color/btnColor"
-        android:text="Agregar a la lista"
+        android:text="+"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.509"
+        app:layout_constraintHorizontal_bias="0.905"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.289" />
+        app:layout_constraintVertical_bias="0.942" />
 
     <ListView
         android:id="@+id/listaObjetos"
@@ -60,19 +75,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.758" />
-
-    <Button
-        android:id="@+id/backButton"
-        android:layout_width="178dp"
-        android:layout_height="49dp"
-        android:backgroundTint="@color/btnEspColor"
-        android:text="Volver"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

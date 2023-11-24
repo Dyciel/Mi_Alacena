@@ -1,8 +1,24 @@
 <resources>
-    <string name="app_name">Mi Alacena</string>
+    <string name="app_name" translatable="false">Mi Alacena</string>
 
-    <string name="textn1">¡Bienvenid@!</string>
-    <string name="textn2">¿Qué deseas hacer hoy?</string>
+    <string name="InventarioTitle">Inventario</string>
+    <string name="LogOutTitle">Cerrar Sesión</string>
+    <string name="SettingTitle">Ajustes</string>
+    <string name="Search">Buscar</string>
+    <string name="Order">Ordenar</string>
+    <string name="AbText">Información</string>
+
+    <string name="BackText">Volver</string>
+
+    <string name="selecciona_categoria">Selecciona una categoría</string>
+    <string-array name="categorias">
+        <item>Verduras</item>
+        <item>Frutas</item>
+        <item>Bebestibles</item>
+        <item>Abarrotes</item>
+    </string-array>
+
+
 
 
 </resources>

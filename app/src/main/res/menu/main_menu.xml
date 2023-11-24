@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/Busq"
+        android:title="@string/Search" />
+    <item
+        android:id="@+id/Orden"
+        android:title="@string/Order" />
+    <item
+        android:id="@+id/PrefConf"
+        android:title="@string/SettingTitle" />
+    <item
+        android:id="@+id/AbAcercade"
+        android:title="@string/AbText" />
+</menu>

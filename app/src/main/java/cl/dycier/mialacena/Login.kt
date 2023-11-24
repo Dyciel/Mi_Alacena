@@ -33,7 +33,7 @@ class Login : AppCompatActivity() {
             }
             else
             {
-                val intent = Intent(this@Login, MainActivity::class.java)
+                val intent = Intent(this@Login, AddInventario::class.java)
                 startActivity(intent)
                 finish()
             }

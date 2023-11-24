@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="InventarioTitle">Inventario</string>
+    <string name="LogOutTitle">Cerrar Sesión</string>
+    <string name="SettingTitle">Ajustes</string>
+    <string name="BackText">Volver</string>
+    <string name="AbText">Información</string>
+    <string name="selecciona_categoria">Selecciona una categoría</string>
+    <string name="Search">Buscar</string>
+    <string name="Order">Ordenar</string>
+
+</resources>

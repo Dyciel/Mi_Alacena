@@ -3,51 +3,164 @@ package cl.dycier.mialacena
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ListView
+import android.widget.Spinner
+import androidx.appcompat.app.AlertDialog
 
 class AddInventario : AppCompatActivity() {
 
-    lateinit var buttonBack: Button
+    private val listaProductos: MutableList<Producto> = mutableListOf()
+    private lateinit var adapter: ProductoAdapter // Agregar esta variable para el adaptador
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_inventario)
+        setSupportActionBar(findViewById(R.id.toobar))
 
         val listProd = findViewById<ListView>(R.id.listaObjetos)
-        val btnAdd = findViewById<Button>(R.id.addButton)
-        val arrayAdapter:ArrayAdapter<*>
         val textProd = findViewById<EditText>(R.id.lista)
 
-        val nomProd = mutableListOf("Pan", "Arroz", "Fideos")
+        // Crear el adaptador con la lista de productos
+        adapter = ProductoAdapter(this, listaProductos)
+        listProd.adapter = adapter
 
-
-
-        arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, nomProd)
-
-        listProd.adapter = arrayAdapter
+        // Agregar evento al botón para agregar un producto a la lista
+        val btnAdd = findViewById<Button>(R.id.addButton)
 
         btnAdd.setOnClickListener {
-            nomProd.add(textProd.text.toString())
-            arrayAdapter.notifyDataSetChanged()
+            mostrarFormularioAgregarProducto()
         }
 
-        listProd.setOnItemClickListener { parent, view, position, id ->
-            val element = arrayAdapter.getItem(position)
-            nomProd.remove(element)
-            arrayAdapter.notifyDataSetChanged()
+    }
+
+    private fun agregarProducto(nombre: String, cantidad: Int, precio: Int, categoria: String) {
+        val producto = Producto(nombre, cantidad, precio, categoria)
+        listaProductos.add(producto)
+    }
+    private fun mostrarFormularioAgregarProducto() {
+        val builder = AlertDialog.Builder(this)
+        val inflater = layoutInflater
+        val dialogView = inflater.inflate(R.layout.datosadd, null)
+
+        val editTextNombre = dialogView.findViewById<EditText>(R.id.editTextNombre)
+        val editTextCantidad = dialogView.findViewById<EditText>(R.id.editTextCantidad)
+        val editTextPrecio = dialogView.findViewById<EditText>(R.id.editTextPrecio)
+        val spinnerCategoria = dialogView.findViewById<Spinner>(R.id.spinnerCategoria)
+
+        val categoriasAdapter = ArrayAdapter.createFromResource(
+            this,
+            R.array.categorias,
+            android.R.layout.simple_spinner_item
+        )
+        categoriasAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinnerCategoria.adapter = categoriasAdapter
+
+        builder.setView(dialogView)
+            .setTitle("Agregar Producto")
+            .setPositiveButton("Agregar") { dialog, which ->
+                val nombre = editTextNombre.text.toString()
+                val cantidad = editTextCantidad.text.toString().toIntOrNull() ?: 0
+                val precio = editTextPrecio.text.toString().toIntOrNull() ?: 0
+                val categoria = spinnerCategoria.selectedItem.toString()
+
+                agregarProducto(nombre, cantidad, precio, categoria)
+                adapter.notifyDataSetChanged()
+            }
+            .setNegativeButton("Cancelar") { dialog, which -> dialog.cancel() }
+
+        val dialog = builder.create()
+        dialog.show()
+    }
+
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.Busq -> {
+                mostrarFormularioBusqueda()
+                return true
+            }
+
+            R.id.Orden -> {
+                return true
+            }
+
+            R.id.PrefConf -> {
+                val intent = Intent(this@AddInventario, Settings::class.java)
+                startActivity(intent)
+                return true
+            }
+
+            R.id.AbAcercade -> {
+                return true
+            }
+
+            else -> return super.onOptionsItemSelected(item)
         }
 
-        buttonBack=findViewById(R.id.backButton)
+    }
+    private fun mostrarFormularioBusqueda() {
+        val builder = AlertDialog.Builder(this)
+        val inflater = layoutInflater
+        val dialogView = inflater.inflate(R.layout.busqueda, null)
 
-        buttonBack.setOnClickListener{
-            val intent = Intent(this@AddInventario, MainActivity::class.java)
-            startActivity(intent)
-            finish()
+        val editTextNombre = dialogView.findViewById<EditText>(R.id.editTextNombre)
+        val spinnerCategoria = dialogView.findViewById<Spinner>(R.id.spinnerCategoria)
+
+        val categoriasAdapter = ArrayAdapter.createFromResource(
+            this,
+            R.array.categorias,
+            android.R.layout.simple_spinner_item
+        )
+        categoriasAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinnerCategoria.adapter = categoriasAdapter
+
+        builder.setView(dialogView)
+            .setTitle("Buscar Producto")
+            .setPositiveButton("Buscar") { dialog, which ->
+                val nombre = editTextNombre.text.toString()
+                val categoria = spinnerCategoria.selectedItem.toString()
+
+                realizarBusqueda(nombre, categoria)
+            }
+            .setNegativeButton("Cancelar") { dialog, which -> dialog.cancel() }
+
+        val dialog = builder.create()
+        dialog.show()
+    }
+    private fun realizarBusqueda(nombre: String, categoria: String) {
+        val resultadosBusqueda = mutableListOf<Producto>()
+
+        if (nombre.isNotEmpty() && categoria.isNotEmpty()) {
+            // Buscar por nombre y categoría
+            val productosPorNombreYCateg = listaProductos.filter {
+                it.nombre.equals(nombre, ignoreCase = true) && it.categoria.equals(categoria, ignoreCase = true)
+            }
+            resultadosBusqueda.addAll(productosPorNombreYCateg)
+        } else if (nombre.isNotEmpty()) {
+            // Buscar solo por nombre
+            val productosPorNombre = listaProductos.filter {
+                it.nombre.equals(nombre, ignoreCase = true)
+            }
+            resultadosBusqueda.addAll(productosPorNombre)
+        } else if (categoria.isNotEmpty()) {
+            // Buscar solo por categoría
+            val productosPorCategoria = listaProductos.filter {
+                it.categoria.equals(categoria, ignoreCase = true)
+            }
+            resultadosBusqueda.addAll(productosPorCategoria)
         }
 
+        adapter.actualizarLista(resultadosBusqueda)
     }
 
 }

@@ -1,4 +1,8 @@
 package cl.dycier.mialacena
 
-class Producto(val nombreItem:String, val cantItem:Int, val precioItem:Int) {
-}
+data class Producto(
+    var nombre: String,
+    var cantidad: Int,
+    var precio: Int,
+    var categoria: String
+)
