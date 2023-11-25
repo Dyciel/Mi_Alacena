@@ -12,7 +12,7 @@ import android.widget.ListView
 import android.widget.Spinner
 import androidx.appcompat.app.AlertDialog
 
-class AddInventario : AppCompatActivity() {
+class AddInventario : AppCompatActivity(), ActualizableInventario, ActualizablePrecio {
 
     private val listaProductos: MutableList<Producto> = mutableListOf()
     private lateinit var adapter: ProductoAdapter // Agregar esta variable para el adaptador
@@ -23,7 +23,7 @@ class AddInventario : AppCompatActivity() {
         setSupportActionBar(findViewById(R.id.toobar))
 
         val listProd = findViewById<ListView>(R.id.listaObjetos)
-        val textProd = findViewById<EditText>(R.id.lista)
+
 
         // Crear el adaptador con la lista de productos
         adapter = ProductoAdapter(this, listaProductos)
@@ -35,12 +35,17 @@ class AddInventario : AppCompatActivity() {
         btnAdd.setOnClickListener {
             mostrarFormularioAgregarProducto()
         }
-
     }
 
     private fun agregarProducto(nombre: String, cantidad: Int, precio: Int, categoria: String) {
-        val producto = Producto(nombre, cantidad, precio, categoria)
+        val producto = Producto(
+            nombre = nombre,
+            cantidad = cantidad,
+            precio = precio,
+            categoria = categoria
+        )
         listaProductos.add(producto)
+        imprimirListaProductos()
     }
     private fun mostrarFormularioAgregarProducto() {
         val builder = AlertDialog.Builder(this)
@@ -177,6 +182,7 @@ class AddInventario : AppCompatActivity() {
         }
 
         adapter.actualizarLista(resultadosBusqueda)
+        imprimirListaProductos()
     }
     private fun mostrarFormularioOrden() {
         val builder = AlertDialog.Builder(this)
@@ -215,4 +221,22 @@ class AddInventario : AppCompatActivity() {
         adapter.notifyDataSetChanged()
     }
 
+    override fun actualizarInventario(nombreProducto: String, nuevaCantidad: Int) {
+        val producto = listaProductos.find { it.nombre == nombreProducto }
+        producto?.cantidad = nuevaCantidad
+        adapter.notifyDataSetChanged()
+        imprimirListaProductos()
+    }
+
+    override fun actualizarPrecio(nombreProducto: String, nuevoPrecio: Int) {
+        val producto = listaProductos.find { it.nombre == nombreProducto }
+        producto?.precio = nuevoPrecio
+        adapter.notifyDataSetChanged()
+        imprimirListaProductos()
+    }
+
+    private fun imprimirListaProductos() {
+        println("Lista de productos:")
+        listaProductos.forEach { println(it) }
+    }
 }

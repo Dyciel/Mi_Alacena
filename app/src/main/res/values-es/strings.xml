@@ -8,5 +8,7 @@
     <string name="selecciona_categoria">Selecciona una categoría</string>
     <string name="Search">Buscar</string>
     <string name="Order">Ordenar</string>
+    <string name="IdiomaText">Idioma</string>
+    <string name="TemaText">Tema</string>
 
 </resources>
