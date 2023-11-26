@@ -8,17 +8,8 @@ Esta aplicación facilita y hace más eficiente tanto la gestión de compras com
 La aplicación cuenta con un Splash Screen animado que muestra el logo de la empresa ficiticia "Panda Games: you must beiieve". 
 Luego nos lleva a la pantalla de Login, donde se muestra el logo de la aplicación. En esta pantalla el usuario debe llenar las casillas con la información que se le pide (nombre de usuario y contraseña).
 En caso de no colocar un nombre de usuario y/o contraseña (o una contraseña menos a 4 caractéres), no podrá iniciar sesión y saldrá una notificacón mostrando el problema o error cometido.
-Una vez ingresado los datos, nos lleva la pantalla de Menú Principal, en esta pantalla se nos muestra un texto de bienvenida, una foto de perfil de ususario, tres botones de acción que nos dirigen a otras pantallas,
-estas son Inventario, Lista de Compras y Tienda, además, cuenta con un botón de cerrar sesión que nos devuelve a la pantalla de login.
-En la pantalla de Inventario nos da la opción de agregar productos que tenemos ya en el hogar a una lista y eliminarlos de esta con solo apretar el item.
-En la pantalla de Lista de Compras nos desplega una pantalla con varios botones de acción que nos dirige hacia:
-- Agregar Lista de Compras: El usuario puede, a través de los elementos en pantalla, ingresar los artículos que desea comprar y estos se agregan a una lista, este proceso equivale a un recordatorio para compras.
-- Ingreso de Compras: Aquí el ususario puede registrar los productos comprados, la cantidad y el precio a los que fueron adquiridos, adjuntándose en una lista.
-- Historial de Compras: Muestra una lista de las compras que ha realizado el usuario, mostrando la fecha de compra. Al seleccionar una fecha se desprende un cuadro de texto que nos dice ue articulos fueron comprados, la cantidad y el precio.
-
-Para finalizar, en la pantalla de Tiendas, se nos despliega una pantalla que nos muestra las tiendas cercanas al usuario (por el momento es una imagen de un lugar "X" que muestra las tiendas cercanas).
-Cabe destacas que todas las pantallas implementadas cuentan con un botón de acción "Volver" que nos redirecciona a la pantalla anterior a la que nos encontramos.
-
+Una vez ingresado los datos, nos lleva la pantalla de Inventario, en ella se pueden agregar productos ingresando su nombre, cantidad, precio y categoría. Al precionar un producto agregado, se despliega una pantalla en la que nos permite editar (precio y cantidad) o eliminar el producto seleccionado. Además de un menú desplegable en la tenemos opciones como de buscar (ya sea por nombre y/o categorías), ordenar (por nombre, cantidad o categoría) y la informacion sobre la aplicación. 
+La app presenta una actualización en la que se incorpora una base de datos llamada "Room" para poder almacenar y gestionar los datos ingresados.
 
 
 Requisitos Funcionales:
@@ -53,7 +44,7 @@ Link video App Mi Alacena: https://youtu.be/2yl8DQCCgbM
 
 Link acceso a diagrama de clases: https://drive.google.com/file/d/1wx_Z3t5gsJRKtUKbBhiG-OyG9rKFOUnw/view?usp=drive_link
 
-Link acceso a APK: https://drive.google.com/file/d/1G9TUPS778uUQzQNHVKr9rnBY7uqrJOkM/view?usp=sharing
+Link acceso a APK: https://drive.google.com/drive/folders/1qXaoMAMkqPOOzZ6oBxr5S_FESlKBgSZk?usp=sharing
 
 
 
