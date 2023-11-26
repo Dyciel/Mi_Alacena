@@ -3,8 +3,11 @@ package cl.dycier.mialacena
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.ContextMenu
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
@@ -15,7 +18,7 @@ import androidx.appcompat.app.AlertDialog
 class AddInventario : AppCompatActivity(), ActualizableInventario, ActualizablePrecio {
 
     private val listaProductos: MutableList<Producto> = mutableListOf()
-    private lateinit var adapter: ProductoAdapter // Agregar esta variable para el adaptador
+    private lateinit var adapter: ProductoAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,16 +27,41 @@ class AddInventario : AppCompatActivity(), ActualizableInventario, ActualizableP
 
         val listProd = findViewById<ListView>(R.id.listaObjetos)
 
-
-        // Crear el adaptador con la lista de productos
         adapter = ProductoAdapter(this, listaProductos)
         listProd.adapter = adapter
 
-        // Agregar evento al botón para agregar un producto a la lista
         val btnAdd = findViewById<Button>(R.id.addButton)
+        registerForContextMenu(listProd)
 
         btnAdd.setOnClickListener {
             mostrarFormularioAgregarProducto()
+        }
+        listProd.setOnItemClickListener { parent, view, position, id ->
+            val productoSeleccionado = listaProductos[position]
+
+            val builder = AlertDialog.Builder(this)
+            val inflater = layoutInflater
+            val dialogView = inflater.inflate(R.layout.editar_producto, null)
+
+            val editTextCantidad = dialogView.findViewById<EditText>(R.id.editTextCantidad)
+            val editTextPrecio = dialogView.findViewById<EditText>(R.id.editTextPrecio)
+
+            editTextCantidad.setText(productoSeleccionado.cantidad.toString())
+            editTextPrecio.setText(productoSeleccionado.precio.toString())
+
+            builder.setView(dialogView)
+                .setTitle("Editar Producto")
+                .setPositiveButton("Guardar") { dialog, which ->
+                    val nuevaCantidad = editTextCantidad.text.toString().toIntOrNull() ?: 0
+                    val nuevoPrecio = editTextPrecio.text.toString().toIntOrNull() ?: 0
+
+                    actualizarInventario(productoSeleccionado.nombre, nuevaCantidad)
+                    actualizarPrecio(productoSeleccionado.nombre, nuevoPrecio)
+                }
+                .setNegativeButton("Cancelar") { dialog, which -> dialog.cancel() }
+
+            val dialog = builder.create()
+            dialog.show()
         }
     }
 
@@ -100,13 +128,9 @@ class AddInventario : AppCompatActivity(), ActualizableInventario, ActualizableP
                 return true
             }
 
-            R.id.PrefConf -> {
-                val intent = Intent(this@AddInventario, Settings::class.java)
-                startActivity(intent)
-                return true
-            }
-
             R.id.AbAcercade -> {
+                val intent = Intent(this@AddInventario, Info::class.java)
+                startActivity(intent)
                 return true
             }
 
@@ -162,19 +186,16 @@ class AddInventario : AppCompatActivity(), ActualizableInventario, ActualizableP
         val resultadosBusqueda = mutableListOf<Producto>()
 
         if (nombre.isNotEmpty() && categoria.isNotEmpty()) {
-            // Buscar por nombre y categoría
             val productosPorNombreYCateg = listaProductos.filter {
                 it.nombre.equals(nombre, ignoreCase = true) && it.categoria.equals(categoria, ignoreCase = true)
             }
             resultadosBusqueda.addAll(productosPorNombreYCateg)
         } else if (nombre.isNotEmpty()) {
-            // Buscar solo por nombre
             val productosPorNombre = listaProductos.filter {
                 it.nombre.equals(nombre, ignoreCase = true)
             }
             resultadosBusqueda.addAll(productosPorNombre)
         } else if (categoria.isNotEmpty()) {
-            // Buscar solo por categoría
             val productosPorCategoria = listaProductos.filter {
                 it.categoria.equals(categoria, ignoreCase = true)
             }
@@ -225,18 +246,68 @@ class AddInventario : AppCompatActivity(), ActualizableInventario, ActualizableP
         val producto = listaProductos.find { it.nombre == nombreProducto }
         producto?.cantidad = nuevaCantidad
         adapter.notifyDataSetChanged()
-        imprimirListaProductos()
     }
 
     override fun actualizarPrecio(nombreProducto: String, nuevoPrecio: Int) {
         val producto = listaProductos.find { it.nombre == nombreProducto }
         producto?.precio = nuevoPrecio
         adapter.notifyDataSetChanged()
-        imprimirListaProductos()
     }
 
     private fun imprimirListaProductos() {
         println("Lista de productos:")
         listaProductos.forEach { println(it) }
+    }
+    override fun onCreateContextMenu(menu: ContextMenu?, v: View?, menuInfo: ContextMenu.ContextMenuInfo?) {
+        super.onCreateContextMenu(menu, v, menuInfo)
+        menuInflater.inflate(R.menu.context_menu, menu)
+    }
+    override fun onContextItemSelected(item: MenuItem): Boolean {
+        val info = item.menuInfo as AdapterView.AdapterContextMenuInfo
+        val position = info.position
+
+        return when (item.itemId) {
+            R.id.editar_producto -> {
+                mostrarFormularioEditarProducto(position)
+                true
+            }
+            R.id.eliminar_producto -> {
+                eliminarProducto(position)
+                true
+            }
+            else -> super.onContextItemSelected(item)
+        }
+    }
+    private fun mostrarFormularioEditarProducto(position: Int) {
+        val productoSeleccionado = listaProductos[position]
+
+        val builder = AlertDialog.Builder(this)
+        val inflater = layoutInflater
+        val dialogView = inflater.inflate(R.layout.editar_producto, null)
+
+        val editTextCantidad = dialogView.findViewById<EditText>(R.id.editTextCantidad)
+        val editTextPrecio = dialogView.findViewById<EditText>(R.id.editTextPrecio)
+
+        editTextCantidad.setText(productoSeleccionado.cantidad.toString())
+        editTextPrecio.setText(productoSeleccionado.precio.toString())
+
+        builder.setView(dialogView)
+            .setTitle("Editar Producto")
+            .setPositiveButton("Guardar") { dialog, which ->
+                val nuevaCantidad = editTextCantidad.text.toString().toIntOrNull() ?: 0
+                val nuevoPrecio = editTextPrecio.text.toString().toIntOrNull() ?: 0
+
+                actualizarInventario(productoSeleccionado.nombre, nuevaCantidad)
+                actualizarPrecio(productoSeleccionado.nombre, nuevoPrecio)
+            }
+            .setNegativeButton("Cancelar") { dialog, which -> dialog.cancel() }
+
+        val dialog = builder.create()
+        dialog.show()
+    }
+
+    private fun eliminarProducto(position: Int) {
+        listaProductos.removeAt(position)
+        adapter.notifyDataSetChanged()
     }
 }

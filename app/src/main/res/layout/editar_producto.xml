@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:translationX="10dp">
+
+    <EditText
+        android:id="@+id/editTextCantidad"
+        android:layout_width="388dp"
+        android:layout_height="68dp"
+        android:hint="Cantidad" />
+
+    <EditText
+        android:id="@+id/editTextPrecio"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:hint="Precio" />
+
+</LinearLayout>

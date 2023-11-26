@@ -19,9 +19,6 @@
         </menu>
     </item>
     <item
-        android:id="@+id/PrefConf"
-        android:title="@string/SettingTitle" />
-    <item
         android:id="@+id/AbAcercade"
         android:title="@string/AbText" />
 </menu>

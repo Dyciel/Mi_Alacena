@@ -14,13 +14,12 @@
 
     <string name="selecciona_categoria">Selecciona una categoría</string>
     <string-array name="categorias">
+        <item> </item>
         <item>Verduras</item>
         <item>Frutas</item>
         <item>Bebestibles</item>
         <item>Abarrotes</item>
     </string-array>
-
-
 
 
 </resources>
