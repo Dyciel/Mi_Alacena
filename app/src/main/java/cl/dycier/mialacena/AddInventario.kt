@@ -122,33 +122,27 @@ class AddInventario : AppCompatActivity(), ActualizableInventario, ActualizableP
                 mostrarFormularioBusqueda()
                 return true
             }
-
             R.id.Orden -> {
                 mostrarFormularioOrden()
                 return true
             }
-
             R.id.AbAcercade -> {
                 val intent = Intent(this@AddInventario, Info::class.java)
                 startActivity(intent)
                 return true
             }
-
             R.id.OrdenarPorNombre -> {
                 ordenarPorNombre()
                 return true
             }
-
             R.id.OrdenarPorCantidad -> {
                 ordenarPorCantidad()
                 return true
             }
-
             R.id.OrdenarPorCategoria -> {
                 ordenarPorCategoria()
                 return true
             }
-
             else -> return super.onOptionsItemSelected(item)
         }
 
